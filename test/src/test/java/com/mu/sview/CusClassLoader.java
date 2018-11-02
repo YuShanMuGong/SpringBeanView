@@ -1,4 +1,4 @@
 package com.mu.sview;
 
-public class CusClassLoader {
+public class CusClassLoader extends ClassLoader {
 }

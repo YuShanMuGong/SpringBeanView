@@ -1,4 +1,7 @@
 package com.mu.sview.service;
 
-public class IUserService {
+public interface IUserService {
+
+    String getName();
+
 }
