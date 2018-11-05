@@ -17,4 +17,6 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <bean id="beanViewController" class="com.mu.sview.controller.BeanViewController"/>
+
 </beans>

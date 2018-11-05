@@ -6,15 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements IUserService {
-
-    private String name = "this is test";
+public class ServiceBImpl implements IServiceB {
 
     @Autowired
-    private IServiceB serviceB;
+    private IUserService userService;
 
     @Override
-    public String getName() {
-        return name;
+    public String show() {
+        return null;
     }
 }
