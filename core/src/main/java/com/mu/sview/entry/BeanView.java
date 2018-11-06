@@ -1,20 +1,27 @@
 package com.mu.sview.dtos;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.util.List;
 
-public class BeanViewDto implements Serializable {
+public class BeanView implements Serializable {
 
     private String id;
     private String classFullName;
     private String classSimpleName;
     private Class beanClass;
-    private List<BeanFieldDto> fields;
-    private List<BeanFieldDto> staticFields;
-    private List<BeanMethodDto> methods;
-    private List<BeanMethodDto> staticMethods;
+    private List<BeanField> fields;
+    private List<BeanField> staticFields;
+    private List<BeanMethod> methods;
+    private List<BeanMethod> staticMethods;
+    private Object beanObj;
+
+    public Object getBeanObj() {
+        return beanObj;
+    }
+
+    public void setBeanObj(Object beanObj) {
+        this.beanObj = beanObj;
+    }
 
     public String getId() {
         return id;
@@ -48,35 +55,35 @@ public class BeanViewDto implements Serializable {
         this.beanClass = beanClass;
     }
 
-    public List<BeanFieldDto> getFields() {
+    public List<BeanField> getFields() {
         return fields;
     }
 
-    public void setFields(List<BeanFieldDto> fields) {
+    public void setFields(List<BeanField> fields) {
         this.fields = fields;
     }
 
-    public List<BeanFieldDto> getStaticFields() {
+    public List<BeanField> getStaticFields() {
         return staticFields;
     }
 
-    public void setStaticFields(List<BeanFieldDto> staticFields) {
+    public void setStaticFields(List<BeanField> staticFields) {
         this.staticFields = staticFields;
     }
 
-    public List<BeanMethodDto> getMethods() {
+    public List<BeanMethod> getMethods() {
         return methods;
     }
 
-    public void setMethods(List<BeanMethodDto> methods) {
+    public void setMethods(List<BeanMethod> methods) {
         this.methods = methods;
     }
 
-    public List<BeanMethodDto> getStaticMethods() {
+    public List<BeanMethod> getStaticMethods() {
         return staticMethods;
     }
 
-    public void setStaticMethods(List<BeanMethodDto> staticMethods) {
+    public void setStaticMethods(List<BeanMethod> staticMethods) {
         this.staticMethods = staticMethods;
     }
 }

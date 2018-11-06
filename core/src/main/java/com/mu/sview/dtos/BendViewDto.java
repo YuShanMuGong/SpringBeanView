@@ -1,4 +1,4 @@
 package com.mu.sview.dtos;
 
-public class BeanFieldDto {
+public class BendViewDto {
 }
