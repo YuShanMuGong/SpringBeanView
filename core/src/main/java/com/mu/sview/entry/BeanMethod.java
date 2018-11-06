@@ -1,4 +1,4 @@
-package com.mu.sview.dtos;
+package com.mu.sview.entry;
 
 import com.mu.sview.enums.ViewAccessEnums;
 

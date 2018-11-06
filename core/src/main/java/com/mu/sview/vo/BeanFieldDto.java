@@ -3,7 +3,7 @@ package com.mu.sview.vo;
 import java.io.Serializable;
 import java.util.List;
 
-public class BeanFieldVo implements Serializable {
+public class BeanFieldDto implements Serializable {
 
     private String name;
     private String typeClassName;

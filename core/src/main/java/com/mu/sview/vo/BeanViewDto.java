@@ -3,15 +3,24 @@ package com.mu.sview.vo;
 import java.io.Serializable;
 import java.util.List;
 
-public class BeanVo implements Serializable {
+public class BeanViewDto implements Serializable {
 
     private String id;
     private String classFullName;
     private String classSimpleName;
-    private List<BeanFieldVo> fields;
-    private List<BeanFieldVo> staticFields;
-    private List<BeanMethodVo> methods;
-    private List<BeanMethodVo> staticMethods;
+    private Integer level;
+    private List<BeanFieldDto> fields;
+    private List<BeanFieldDto> staticFields;
+    private List<BeanMethodDto> methods;
+    private List<BeanMethodDto> staticMethods;
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
 
     public String getId() {
         return id;
@@ -37,35 +46,35 @@ public class BeanVo implements Serializable {
         this.classSimpleName = classSimpleName;
     }
 
-    public List<BeanFieldVo> getFields() {
+    public List<BeanFieldDto> getFields() {
         return fields;
     }
 
-    public void setFields(List<BeanFieldVo> fields) {
+    public void setFields(List<BeanFieldDto> fields) {
         this.fields = fields;
     }
 
-    public List<BeanFieldVo> getStaticFields() {
+    public List<BeanFieldDto> getStaticFields() {
         return staticFields;
     }
 
-    public void setStaticFields(List<BeanFieldVo> staticFields) {
+    public void setStaticFields(List<BeanFieldDto> staticFields) {
         this.staticFields = staticFields;
     }
 
-    public List<BeanMethodVo> getMethods() {
+    public List<BeanMethodDto> getMethods() {
         return methods;
     }
 
-    public void setMethods(List<BeanMethodVo> methods) {
+    public void setMethods(List<BeanMethodDto> methods) {
         this.methods = methods;
     }
 
-    public List<BeanMethodVo> getStaticMethods() {
+    public List<BeanMethodDto> getStaticMethods() {
         return staticMethods;
     }
 
-    public void setStaticMethods(List<BeanMethodVo> staticMethods) {
+    public void setStaticMethods(List<BeanMethodDto> staticMethods) {
         this.staticMethods = staticMethods;
     }
 }

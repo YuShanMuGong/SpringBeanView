@@ -1,4 +1,4 @@
-package com.mu.sview.dtos;
+package com.mu.sview.entry;
 
 import java.io.Serializable;
 import java.util.List;
@@ -9,11 +9,38 @@ public class BeanView implements Serializable {
     private String classFullName;
     private String classSimpleName;
     private Class beanClass;
+    private Class superClass;
+    private String superClassSimpleName;
+    private String superClassFullName;
     private List<BeanField> fields;
     private List<BeanField> staticFields;
     private List<BeanMethod> methods;
     private List<BeanMethod> staticMethods;
     private Object beanObj;
+
+    public Class getSuperClass() {
+        return superClass;
+    }
+
+    public void setSuperClass(Class superClass) {
+        this.superClass = superClass;
+    }
+
+    public String getSuperClassSimpleName() {
+        return superClassSimpleName;
+    }
+
+    public void setSuperClassSimpleName(String superClassSimpleName) {
+        this.superClassSimpleName = superClassSimpleName;
+    }
+
+    public String getSuperClassFullName() {
+        return superClassFullName;
+    }
+
+    public void setSuperClassFullName(String superClassFullName) {
+        this.superClassFullName = superClassFullName;
+    }
 
     public Object getBeanObj() {
         return beanObj;

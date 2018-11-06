@@ -72,6 +72,11 @@ public class ReflectionUtil {
         return Arrays.asList(field.getDeclaredAnnotations());
     }
 
+    public static boolean haveSuperClass(Class<?> cl) {
+        return cl == Object.class;
+    }
+
+
     public static Class<?> getSuperClass(Class<?> subClass, int deep) {
         Class<?> cl = subClass;
         for (int i = 0; i < deep; i++) {

@@ -3,7 +3,7 @@ package com.mu.sview.vo;
 import java.io.Serializable;
 import java.util.List;
 
-public class BeanMethodVo implements Serializable {
+public class BeanMethodDto implements Serializable {
 
     private String name;
     private String viewAccessName;

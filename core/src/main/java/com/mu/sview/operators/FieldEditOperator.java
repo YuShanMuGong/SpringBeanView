@@ -1,12 +1,13 @@
 package com.mu.sview.operators;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.mu.sview.dtos.Response;
-import com.mu.sview.util.FieldValueUtil;
 import com.mu.sview.util.ReflectionUtil;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 import java.lang.reflect.Field;
-import java.lang.reflect.Type;
+import java.lang.reflect.Modifier;
 
 public class FieldEditOperator {
 
@@ -22,8 +23,12 @@ public class FieldEditOperator {
         Class<?> superClass = ReflectionUtil.getSuperClass(beanObj.getClass(), deep);
         try {
             Field field = ReflectionUtil.getHaveAccessField(superClass, fieldName);
-            Type fieldClass = field.getGenericType();
-            Object newObj = FieldValueUtil.convertValue((Class<?>) fieldClass, newValue);
+            if (Modifier.isFinal(field.getModifiers())) {
+                return Response.error("final field can not edit");
+            }
+            Class<?> fieldClass = field.getClass();
+            JSONObject json = JSON.parseObject(newValue);
+            Object newObj = json.getObject("v", fieldClass);
             field.set(beanObj, newObj);
         } catch (Exception e) {
             return Response.error(e.getMessage());
