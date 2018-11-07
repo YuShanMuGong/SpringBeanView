@@ -26,7 +26,7 @@ public class FieldEditOperator {
             if (Modifier.isFinal(field.getModifiers())) {
                 return Response.error("final field can not edit");
             }
-            Class<?> fieldClass = field.getClass();
+            Class<?> fieldClass = field.getType();
             JSONObject json = JSON.parseObject(newValue);
             Object newObj = json.getObject("v", fieldClass);
             field.set(beanObj, newObj);

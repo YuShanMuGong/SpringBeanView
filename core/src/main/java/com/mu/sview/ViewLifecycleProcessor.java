@@ -1,5 +1,6 @@
 package com.mu.sview;
 
+import com.mu.sview.dtos.BeanViewDto;
 import com.mu.sview.entry.BeanView;
 import com.mu.sview.entry.BeanViewNode;
 import com.mu.sview.operators.FieldEditOperator;
@@ -48,11 +49,11 @@ public class ViewLifecycleProcessor extends DefaultLifecycleProcessor {
         return CollectionUtils.notNullMap(nodes, BeanViewNode::getData);
     }
 
-    public BeanView getBeanView(String id, int deep) {
+    public BeanViewDto getBeanView(String id, int deep) {
         BeanViewNode node = singletonBeanNodeMap.get(id);
         for (int i = 1; i <= deep; i++) {
             if (node.level == deep || !node.haveSuper) {
-                return node.data;
+                return BeanViewUtil.convert(node.data);
             }
             Object data = node.data.getBeanObj();
             BeanView newLevelView = BeanViewUtil.buildBeanViewDto(id, data, i);
@@ -60,7 +61,7 @@ public class ViewLifecycleProcessor extends DefaultLifecycleProcessor {
             node.setSuperNode(newLevelNode);
             node = newLevelNode;
         }
-        return node.data;
+        return BeanViewUtil.convert(node.data);
     }
 
     public FieldEditOperator getFieldEditOperator() {

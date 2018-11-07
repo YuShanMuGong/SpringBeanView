@@ -1,12 +1,9 @@
 package com.mu.sview.dtos;
 
-import com.mu.sview.vo.BeanFieldDto;
-import com.mu.sview.vo.BeanMethodDto;
-
 import java.io.Serializable;
 import java.util.List;
 
-public class BendViewDto implements Serializable {
+public class BeanViewDto implements Serializable {
 
     private String id;
     private String classFullName;

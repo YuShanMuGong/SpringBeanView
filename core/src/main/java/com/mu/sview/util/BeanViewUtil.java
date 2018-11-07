@@ -2,13 +2,16 @@ package com.mu.sview.util;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
+import com.mu.sview.dtos.BeanFieldDto;
+import com.mu.sview.dtos.BeanMethodDto;
+import com.mu.sview.dtos.BeanViewDto;
 import com.mu.sview.entry.BeanField;
 import com.mu.sview.entry.BeanMethod;
 import com.mu.sview.entry.BeanView;
-import com.mu.sview.vo.BeanFieldDto;
+import com.mu.sview.vo.BeanFieldVo;
 import com.mu.sview.vo.BeanListVo;
-import com.mu.sview.vo.BeanMethodDto;
-import com.mu.sview.vo.BeanViewDto;
+import com.mu.sview.vo.BeanMethodVo;
+import com.mu.sview.vo.BeanVo;
 import org.springframework.util.StringUtils;
 
 import java.lang.annotation.Annotation;
@@ -37,6 +40,9 @@ public class BeanViewUtil {
         beanView.setBeanObj(beanObj);
 
         Class<?> superClass = beanClass.getSuperclass();
+        if (superClass == null) {
+            return beanView;
+        }
         String superClassName = superClass.getSimpleName();
         String superClassFullName = superClass.getName();
         beanView.setSuperClass(superClass);
@@ -169,6 +175,47 @@ public class BeanViewUtil {
             if (d.equals(desc)) return method;
         }
         return null;
+    }
+
+    public static BeanFieldVo convert(BeanFieldDto dto) {
+        if (dto == null) {
+            return null;
+        }
+        BeanFieldVo beanFieldVo = new BeanFieldVo();
+        beanFieldVo.setName(dto.getName());
+        beanFieldVo.setTypeClassName(dto.getTypeClassName());
+        beanFieldVo.setAnnotationNames(dto.getAnnotationNames());
+        beanFieldVo.setViewAccessName(dto.getViewAccessName());
+        return beanFieldVo;
+    }
+
+    public static BeanMethodVo convert(BeanMethodDto dto) {
+        if (dto == null) {
+            return null;
+        }
+        BeanMethodVo beanMethodVo = new BeanMethodVo();
+        beanMethodVo.setName(dto.getName());
+        beanMethodVo.setViewAccessName(dto.getViewAccessName());
+        beanMethodVo.setArgNames(dto.getArgNames());
+        beanMethodVo.setReturnTypeName(dto.getReturnTypeName());
+        beanMethodVo.setDesc(dto.getDesc());
+        return beanMethodVo;
+    }
+
+    public static BeanVo convert(BeanViewDto dto) {
+        if (dto == null) {
+            return null;
+        }
+        BeanVo beanVo = new BeanVo();
+        beanVo.setId(dto.getId());
+        beanVo.setClassFullName(dto.getClassFullName());
+        beanVo.setClassSimpleName(dto.getClassSimpleName());
+        beanVo.setLevel(dto.getLevel());
+        beanVo.setFields(CollectionUtils.notNullMap(dto.getFields(), BeanViewUtil::convert));
+        beanVo.setStaticFields(CollectionUtils.notNullMap(dto.getStaticFields(), BeanViewUtil::convert));
+        beanVo.setMethods(CollectionUtils.notNullMap(dto.getMethods(), BeanViewUtil::convert));
+        beanVo.setStaticMethods(CollectionUtils.notNullMap(dto.getStaticMethods(), BeanViewUtil::convert));
+        return beanVo;
     }
 
 }

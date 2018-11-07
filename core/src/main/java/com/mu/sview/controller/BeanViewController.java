@@ -1,13 +1,14 @@
 package com.mu.sview.controller;
 
 import com.mu.sview.ViewLifecycleProcessor;
+import com.mu.sview.dtos.BeanViewDto;
 import com.mu.sview.entry.BeanView;
 import com.mu.sview.dtos.MethodInvokeDto;
 import com.mu.sview.dtos.Response;
 import com.mu.sview.util.BeanViewUtil;
 import com.mu.sview.util.CollectionUtils;
 import com.mu.sview.vo.BeanListVo;
-import com.mu.sview.vo.BeanViewDto;
+import com.mu.sview.vo.BeanVo;
 import com.mu.sview.vo.JsonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -34,9 +35,9 @@ public class BeanViewController {
     }
 
     @RequestMapping("/getBeanDetail")
-    public String getBeanDetail(String beanId) {
-        BeanView viewDto = lifecycleProcessor.getBeanViewDto(beanId);
-        BeanViewDto vo = BeanViewUtil.convert(viewDto);
+    public String getBeanDetail(String beanId, int deep) {
+        BeanViewDto viewDto = lifecycleProcessor.getBeanView(beanId, deep);
+        BeanVo vo = BeanViewUtil.convert(viewDto);
         return JsonResponse.success(vo).toJson();
     }
 

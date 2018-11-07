@@ -14,7 +14,7 @@ public class HelloController {
 
     @RequestMapping("/show")
     public String show() {
-        return "hello SpringView";
+        return userService.getName();
     }
 
 }

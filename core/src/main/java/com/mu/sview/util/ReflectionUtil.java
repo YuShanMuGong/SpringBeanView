@@ -73,7 +73,7 @@ public class ReflectionUtil {
     }
 
     public static boolean haveSuperClass(Class<?> cl) {
-        return cl == Object.class;
+        return cl.getSuperclass() != null;
     }
 
 
