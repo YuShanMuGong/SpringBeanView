@@ -2,10 +2,7 @@ package com.mu.sview.util;
 
 import com.mu.sview.functions.TwoParamsConverter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -36,6 +33,25 @@ public class CollectionUtils {
             blis.add(converter.convert(it, i));
         }
         return blis;
+    }
+
+    public static <T> String join(Iterable<T> iter, String separator) {
+        return join(iter, separator, Object::toString);
+    }
+
+
+    public static <T> String join(Iterable<T> iter, String separator, Function<? super T, ? extends String> toStringMethod) {
+        if (iter == null) return null;
+        Iterator<T> it = iter.iterator();
+        StringBuilder returnStr = new StringBuilder();
+        while (it.hasNext()) {
+            T item = it.next();
+            returnStr.append(toStringMethod.apply(item));
+            if (it.hasNext()) {
+                returnStr.append(separator);
+            }
+        }
+        return returnStr.toString();
     }
 
     public static <T> boolean isEmpty(Collection<T> collection) {

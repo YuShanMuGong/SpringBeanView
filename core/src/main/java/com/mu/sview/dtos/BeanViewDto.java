@@ -8,6 +8,7 @@ public class BeanViewDto implements Serializable {
     private String id;
     private String classFullName;
     private String classSimpleName;
+    private String superClassName;
     private Integer level;
     private List<BeanFieldDto> fields;
     private List<BeanFieldDto> staticFields;
@@ -24,6 +25,14 @@ public class BeanViewDto implements Serializable {
 
     public String getClassFullName() {
         return classFullName;
+    }
+
+    public String getSuperClassName() {
+        return superClassName;
+    }
+
+    public void setSuperClassName(String superClassName) {
+        this.superClassName = superClassName;
     }
 
     public void setClassFullName(String classFullName) {

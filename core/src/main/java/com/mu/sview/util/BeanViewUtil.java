@@ -184,7 +184,7 @@ public class BeanViewUtil {
         BeanFieldVo beanFieldVo = new BeanFieldVo();
         beanFieldVo.setName(dto.getName());
         beanFieldVo.setTypeClassName(dto.getTypeClassName());
-        beanFieldVo.setAnnotationNames(dto.getAnnotationNames());
+        beanFieldVo.setAnnotationNameDesc(CollectionUtils.join(dto.getAnnotationNames(), ","));
         beanFieldVo.setViewAccessName(dto.getViewAccessName());
         return beanFieldVo;
     }
@@ -196,7 +196,7 @@ public class BeanViewUtil {
         BeanMethodVo beanMethodVo = new BeanMethodVo();
         beanMethodVo.setName(dto.getName());
         beanMethodVo.setViewAccessName(dto.getViewAccessName());
-        beanMethodVo.setArgNames(dto.getArgNames());
+        beanMethodVo.setArgNameDesc(CollectionUtils.join(dto.getArgNames(), ","));
         beanMethodVo.setReturnTypeName(dto.getReturnTypeName());
         beanMethodVo.setDesc(dto.getDesc());
         return beanMethodVo;
@@ -209,7 +209,6 @@ public class BeanViewUtil {
         BeanVo beanVo = new BeanVo();
         beanVo.setId(dto.getId());
         beanVo.setClassFullName(dto.getClassFullName());
-        beanVo.setClassSimpleName(dto.getClassSimpleName());
         beanVo.setLevel(dto.getLevel());
         beanVo.setFields(CollectionUtils.notNullMap(dto.getFields(), BeanViewUtil::convert));
         beanVo.setStaticFields(CollectionUtils.notNullMap(dto.getStaticFields(), BeanViewUtil::convert));

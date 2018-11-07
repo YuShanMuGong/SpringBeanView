@@ -15,7 +15,7 @@ public class JsonResponse implements Serializable {
     }
 
     public static JsonResponse success() {
-        return new JsonResponse(0, null, null);
+        return new JsonResponse(1, null, null);
     }
 
     public static JsonResponse error(String msg) {

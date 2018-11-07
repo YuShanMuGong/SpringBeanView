@@ -8,8 +8,8 @@ public class BeanVo implements Serializable {
 
     private String id;
     private String classFullName;
-    private String classSimpleName;
     private Integer level;
+    private String superClassName;
     private List<BeanFieldVo> fields;
     private List<BeanFieldVo> staticFields;
     private List<BeanMethodVo> methods;
@@ -17,6 +17,14 @@ public class BeanVo implements Serializable {
 
     public String getId() {
         return id;
+    }
+
+    public String getSuperClassName() {
+        return superClassName;
+    }
+
+    public void setSuperClassName(String superClassName) {
+        this.superClassName = superClassName;
     }
 
     public void setId(String id) {
@@ -29,14 +37,6 @@ public class BeanVo implements Serializable {
 
     public void setClassFullName(String classFullName) {
         this.classFullName = classFullName;
-    }
-
-    public String getClassSimpleName() {
-        return classSimpleName;
-    }
-
-    public void setClassSimpleName(String classSimpleName) {
-        this.classSimpleName = classSimpleName;
     }
 
     public Integer getLevel() {

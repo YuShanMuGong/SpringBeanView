@@ -1,12 +1,11 @@
 package com.mu.sview.vo;
 
-import java.util.List;
 
 public class BeanFieldVo {
 
     private String name;
     private String typeClassName;
-    private List<String> annotationNames;
+    private String annotationNameDesc;
     private String viewAccessName;
 
     public String getName() {
@@ -25,12 +24,12 @@ public class BeanFieldVo {
         this.typeClassName = typeClassName;
     }
 
-    public List<String> getAnnotationNames() {
-        return annotationNames;
+    public String getAnnotationNameDesc() {
+        return annotationNameDesc;
     }
 
-    public void setAnnotationNames(List<String> annotationNames) {
-        this.annotationNames = annotationNames;
+    public void setAnnotationNameDesc(String annotationNameDesc) {
+        this.annotationNameDesc = annotationNameDesc;
     }
 
     public String getViewAccessName() {

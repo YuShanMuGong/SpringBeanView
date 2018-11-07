@@ -1,12 +1,11 @@
 package com.mu.sview.vo;
 
-import java.util.List;
 
 public class BeanMethodVo {
 
     private String name;
     private String viewAccessName;
-    private List<String> argNames;
+    private String argNameDesc;
     private String returnTypeName;
     private String desc;
 
@@ -26,12 +25,12 @@ public class BeanMethodVo {
         this.viewAccessName = viewAccessName;
     }
 
-    public List<String> getArgNames() {
-        return argNames;
+    public String getArgNameDesc() {
+        return argNameDesc;
     }
 
-    public void setArgNames(List<String> argNames) {
-        this.argNames = argNames;
+    public void setArgNameDesc(String argNameDesc) {
+        this.argNameDesc = argNameDesc;
     }
 
     public String getReturnTypeName() {
